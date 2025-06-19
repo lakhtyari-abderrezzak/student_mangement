@@ -2,8 +2,8 @@
 
 class Home extends Controller
 {
-    public function __construct(){
-        echo "Welcome to the Home Controller!";
+    public function index(){
+        echo $this->view('home');
     }
    
 }
