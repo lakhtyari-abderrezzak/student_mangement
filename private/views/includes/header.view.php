@@ -8,4 +8,4 @@
 
     <title>Home</title>
 </head>
-<div class="container">
+<div>
