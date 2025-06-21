@@ -64,3 +64,21 @@ body{
     box-shadow: none;
   }
 /* End Login  */
+
+/* Start nav  */
+
+.navbar-custom {
+    background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+    backdrop-filter: blur(10px); /* optional for a frosted glass effect */
+  }
+
+  .navbar-custom .nav-link,
+  .navbar-custom .navbar-brand {
+    color: #4b0082 !important; /* dark violet text */
+  }
+
+  .navbar-custom .nav-link:hover {
+    color: #8000ff !important;
+  }
+
+/* End Nav  */
