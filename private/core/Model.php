@@ -8,6 +8,13 @@ class Model extends Database {
             $this->table = strtolower($this::class) . 's'; 
         }
     }
+    public function where($column, $value){
+        // Ensure the column name is safe to use in a query
+        $column = addslashes($column);
+        $query = "SELECT * FROM " . $this->table . " WHERE " . $column . " = :" . $column;
+        return $this->query($query, [$column => $value]);
+        
+    }
     public function findAll(){
 
         $query = "SELECT * FROM " . $this->table;
