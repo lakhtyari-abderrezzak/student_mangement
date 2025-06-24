@@ -29,4 +29,30 @@ class Model extends Database {
         return $this->query($query, ['id' => $id]);
 
     }
+
+    public function insert($data){
+        $columns = implode(", ",  array_keys($data));
+        $placeholders = ":" . implode(", :", array_keys($data));
+
+        $query = "INSERT INTO " . $this->table . " ($columns) VALUES ($placeholders)";
+        echo $query;
+        return $this->query($query, $data);
+    }
+
+    public function update($id, $data){
+        $set = "";
+        foreach($data as $key => $value){
+            $set .= "$key = :$key, ";
+        }    
+        $set = rtrim($set, ", ");
+        $query = "UPDATE " . $this->table . " SET $set WHERE id = :id";
+        $data['id'] = $id; // Add id to data for binding
+        return $this->query($query, $data);
+    }
+    public function delete($id){
+        $query = "DELETE FROM " . $this->table . " WHERE id = :id";
+        $data['id'] = $id;
+
+        return $this->query($query, $data);
+    }
 }
