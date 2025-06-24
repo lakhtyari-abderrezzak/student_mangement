@@ -1,5 +1,6 @@
 <?php
 namespace core;
+
 class Controller
 {
 
@@ -13,4 +14,13 @@ class Controller
         }
     }
 
+    public function loadModel($model){
+        $modelPath = '../private/models/' . $model . '.php';
+        if (file_exists($modelPath)) {
+            require_once $modelPath;
+            return new $model();
+        } else {
+            throw new \Exception("Model not found: " . $model);
+        }
+    }
 }
