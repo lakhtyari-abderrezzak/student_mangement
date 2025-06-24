@@ -46,9 +46,9 @@ body{
 /* Start login */
 
 .login-container {
-    max-width: 400px;
+    max-width: 500px;
     margin: 80px auto;
-    padding: 30px;
+    padding: 50px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -64,21 +64,15 @@ body{
     box-shadow: none;
   }
 /* End Login  */
-
-/* Start nav  */
-
-.navbar-custom {
-    background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
-    backdrop-filter: blur(10px); /* optional for a frosted glass effect */
+/* Start nav */
+.glass-container {
+    width: 80%;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 40px 20px;
+    margin: 100px auto;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   }
-
-  .navbar-custom .nav-link,
-  .navbar-custom .navbar-brand {
-    color: #4b0082 !important; /* dark violet text */
-  }
-
-  .navbar-custom .nav-link:hover {
-    color: #8000ff !important;
-  }
-
-/* End Nav  */
+/* End nav */
