@@ -1,4 +1,5 @@
 <?php echo $this->view('includes/header'); ?>
+<?php echo $this->view('includes/nav'); ?>
 
 <div class="login-container">
     <h3 class="login-title">Login</h3>
