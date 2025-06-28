@@ -2,7 +2,7 @@
 
 class Model extends Database {
     
-
+    public $errors = [];
     public function __construct(){
         if(!property_exists($this, 'table')){
             $this->table = strtolower($this::class) . 's'; 
@@ -35,7 +35,7 @@ class Model extends Database {
         $placeholders = ":" . implode(", :", array_keys($data));
 
         $query = "INSERT INTO " . $this->table . " ($columns) VALUES ($placeholders)";
-        echo $query;
+
         return $this->query($query, $data);
     }
 
