@@ -23,4 +23,9 @@ class Controller
             throw new \Exception("Model not found: " . $model);
         }
     }
+
+    public function redirect($url){
+        header("Location: " . ROOT . $url);
+        exit();
+    }
 }
