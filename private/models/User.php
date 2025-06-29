@@ -4,17 +4,17 @@ class User extends Model{
 
     public function validate($DATA){
         $this->errors = [];
-        if(!preg_match('/^[a-zA-Z]+$/' ,$DATA['firstname'])){
-            $this->errors['firstname'] = "only letters are allowed in first name";
+        if(!preg_match('/^[a-zA-Z]+$/' ,$DATA['first_name'])){
+            $this->errors['first_name'] = "only letters are allowed in first name";
         }
-        if(!preg_match('/^[a-zA-Z]+$/' ,$DATA['lastname'])){
-            $this->errors['lastname'] = "only letters are allowed in last name";
+        if(!preg_match('/^[a-zA-Z]+$/' ,$DATA['last_name'])){
+            $this->errors['last_name'] = "only letters are allowed in last name";
         }
-        if(empty($DATA['firstname'])){
-            $this->errors['firstname'] = "First name is required";
+        if(empty($DATA['first_name'])){
+            $this->errors['first_name'] = "First name is required";
         }
-        if(empty($DATA['lastname'])){
-            $this->errors['lastname'] = "Last name is required";
+        if(empty($DATA['last_name'])){
+            $this->errors['last_name'] = "Last name is required";
         }
         if(!filter_var($DATA['email'], FILTER_VALIDATE_EMAIL)){
             $this->errors['email'] = "Invalid email format";
