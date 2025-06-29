@@ -1,14 +1,16 @@
-<?php 
+<?php
 
 use \core\Controller;
 
-class Register extends Controller{
-    public function index(){
-        if(count($_POST) > 0){
+class Register extends Controller
+{
+    public function index()
+    {
+        if (count($_POST) > 0) {
             $user = new User();
 
-            if($user->validate($_POST)){
-                
+            if ($user->validate($_POST)) {
+
 
                 $arr = [
                     'first_name' => getValue('first_name'),
@@ -16,14 +18,14 @@ class Register extends Controller{
                     'email' => getValue('email'),
                     'rank' => getValue('rank'),
                     'gender' => getValue('gender'),
-                    'password' => password_hash(getValue('password'), PASSWORD_BCRYPT),
+                    'password' => getValue('password'),
                     'date' => date('Y-m-d H:i:s'),
                 ];
 
                 $user->insert($arr);
                 $this->redirect('login');
-                
-            }else{
+
+            } else {
 
                 $errors = $user->errors;
             }
@@ -34,6 +36,6 @@ class Register extends Controller{
             'title' => 'Register',
             'errors' => $errors ?? []
         ]);
-       
+
     }
-} 
+}
