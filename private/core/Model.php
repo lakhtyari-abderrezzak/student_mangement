@@ -31,6 +31,23 @@ class Model extends Database {
     }
 
     public function insert($data){
+
+        // Ensure that only fillable properties are inserted
+        if(property_exists($this, 'fillable')){
+            foreach($data as $key => $value){
+                if(!in_array($key, $this->fillable)){
+                    unset($data[$key]);
+                }
+            }
+        }
+        if(property_exists($this, 'beforeInsert')){
+            foreach($this->beforeInsert as $method){
+                if(method_exists($this, $method)){
+                    $data = $this->$method($data);
+                }
+            }
+        }
+
         $columns = implode(", ",  array_keys($data));
         $placeholders = ":" . implode(", :", array_keys($data));
 
