@@ -24,13 +24,19 @@ use Soap\Url;
           <a class="nav-link active" href="<?= ROOT ?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?= ROOT ?>features">Features</a>
+          <a class="nav-link" href="<?= ROOT ?>users">Staff</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?= ROOT ?>tests">Tests</a>
+          <a class="nav-link" href="<?= ROOT ?>students">Students</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= ROOT ?>classes">Classes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= ROOT ?>schools">Schools</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= ROOT ?>tests">Tests</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -38,15 +44,15 @@ use Soap\Url;
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
-            User
+            <?= Auth::check() ? esc(Auth::getFirst_name()) : 'Account' ?>
           </a>
           <ul class="dropdown-menu justify-content-end" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="<?= ROOT ?>login">Profile</a></li>
-            <li><a class="dropdown-item" href="<?= ROOT ?>register">Dashboard</a></li>
+            <li><a class="dropdown-item" href="<?= ROOT ?>profile">Profile</a></li>
+            <li><a class="dropdown-item" href="<?= ROOT ?>dashboard">Dashboard</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="logout">Logout</a></li>
           </ul>
         </li>
       </ul>
