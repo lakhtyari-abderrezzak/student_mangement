@@ -38,6 +38,9 @@ class User extends Model
         if (empty($DATA['email'])) {
             $this->errors['email'] = "Email is required";
         }
+        if ( $this->where('email', $DATA['email'])) {
+            $this->errors['email'] = "Email already exists";
+        }
         $ranks = ['student', 'reception', 'lecturer', 'admin', 'super-admin'];
 
         if (empty($DATA['rank']) || !in_array($DATA['rank'], $ranks)) {
@@ -71,7 +74,7 @@ class User extends Model
     }
     protected function setUserId($data)
     {
-        $data['user_id'] = $this->randomId(60);
+        $data['user_id'] = randomId(60);
         return $data;
     }
    protected function setSchoolId($data)
@@ -80,15 +83,5 @@ class User extends Model
             $data['school_id'] = $_SESSION['school_id'];
         }
         return $data;
-    }
-    public function randomId($length)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
     }
 }
