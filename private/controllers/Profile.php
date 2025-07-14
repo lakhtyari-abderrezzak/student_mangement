@@ -4,12 +4,21 @@ use core\Controller;
 class Profile extends Controller {
     public function index(){
         // Load the model
-        $user = $this->loadModel('User');
+        $user = new User();
         
-        $userData = $user->findById(1); 
-        
+        $id = $_GET['id'] ?? null;
+
+        $userData = $user->findById($id); 
+        if (!$userData) {
+            // Handle the case where the user is not found
+            $this->view('404', [
+                'message' => 'User not found.'
+            ]);
+            return;
+        }
         $this->view('profile', [
-            'user' => $userData[0] ?? null // Assuming the user ID is 1 for this example
+            'user' => $userData[0],
+
         ]);
     }
 }
