@@ -38,7 +38,7 @@ class User extends Model
         if (empty($DATA['email'])) {
             $this->errors['email'] = "Email is required";
         }
-        if ( $this->where('email', $DATA['email'])) {
+        if ($this->where('email', $DATA['email'])) {
             $this->errors['email'] = "Email already exists";
         }
         $ranks = ['student', 'reception', 'lecturer', 'admin', 'super-admin'];
@@ -77,9 +77,9 @@ class User extends Model
         $data['user_id'] = randomId(60);
         return $data;
     }
-   protected function setSchoolId($data)
+    protected function setSchoolId($data)
     {
-        if(isset($_SESSION['school_id'])){
+        if (isset($_SESSION['school_id'])) {
             $data['school_id'] = $_SESSION['school_id'];
         }
         return $data;
