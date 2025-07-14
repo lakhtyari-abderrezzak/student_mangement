@@ -29,3 +29,7 @@ function randomId($length)
     }
     return $randomString;
 }
+
+function get_date($date){
+    return date('jS M, Y', strtotime($date));
+}
