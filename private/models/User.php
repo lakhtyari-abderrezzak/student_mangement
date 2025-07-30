@@ -79,8 +79,8 @@ class User extends Model
     }
     protected function setSchoolId($data)
     {
-        if (isset($_SESSION['school_id'])) {
-            $data['school_id'] = $_SESSION['school_id'];
+        if (isset($_SESSION['user']->school_id)) {
+            $data['school_id'] = $_SESSION['user']->school_id;
         }
         return $data;
     }
