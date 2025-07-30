@@ -22,11 +22,13 @@ class Database{
             $check = $stmt->execute($params);
             if($check){
                 if($fetchMode !== 'object'){
-                    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                     $stmt->fetchAll(PDO::FETCH_ASSOC);
                 } else{
                     return $stmt->fetchAll(PDO::FETCH_OBJ);
                 } 
+                return true;
             }
+            
         } 
         return false;
     }
