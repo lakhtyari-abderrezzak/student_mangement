@@ -32,10 +32,12 @@
                                 <td><?php echo esc($school->school); ?></td>
                                 <td><?php echo get_date($school->date); ?></td>
                                 <td>
-                                    <a href="<?= ROOT ?>schools/edit/<?php echo esc($school->id); ?>"
+                                    <a title="Edit" href="<?= ROOT ?>schools/edit/<?php echo esc($school->id); ?>"
                                         class="btn btn-warning btn-sm"><i class="fas fa-edit text-white"></i></a>
-                                    <a href="<?= ROOT ?>schools/delete/<?php echo esc($school->id); ?>"
+                                    <a title="Delete" href="<?= ROOT ?>schools/delete/<?php echo esc($school->id); ?>"
                                         class="btn btn-danger btn-sm"><i class="fas fa-trash text-white"></i></a>
+                                    <a title="switch school" href="<?= ROOT ?>switch_school/<?php echo esc($school->id); ?>"
+                                        class="btn btn-primary btn-sm"><i class="fas fa-recycle text-white"></i></a>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
