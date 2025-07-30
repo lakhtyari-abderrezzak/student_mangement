@@ -83,7 +83,7 @@
             </div>
 
             <div class="text-center mt-3">
-                <a href="#">Already have an account? Login</a>
+                <a href="<?= ROOT . 'login' ?>">Already have an account? Login</a>
             </div>
         </form>
     </div>
