@@ -10,7 +10,8 @@ use Soap\Url;
         <img src="https://icons.iconarchive.com/icons/pictogrammers/material/128/school-icon.png" alt="School icon"
           width="32" height="32">
       </div>
-      <span class="">My School</span>
+      <span class=""> <?= Auth::getSchool_name() ?>
+      </span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
