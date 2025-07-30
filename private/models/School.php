@@ -24,6 +24,15 @@ class School extends Model
             $this->errors['school'] = "School name is required";
         }
 
+        if ($this->where('school', $DATA['school'])) {
+            $this->errors['school'] = "School name already exists";
+        }
+
+        if (count($this->errors) == 0) {
+            return true;
+        }
+        return false;
+
     }
 
     protected function setUserId($data)
@@ -35,7 +44,7 @@ class School extends Model
     }
     protected function setSlug($data)
     {
-        $data['slug'] = randomId(60);
+        $data['school_id'] = randomId(60);
         return $data;
     }
     protected function getUser($data){
