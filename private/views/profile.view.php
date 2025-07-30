@@ -1,8 +1,8 @@
 <?php echo $this->view('includes/header'); ?>
 <?php echo $this->view('includes/nav'); ?>
 
+<?php // echo '<pre>'; print_r($user); echo '</pre>';  ?> 
 <div class="container glass-container mt-10">
-
     <!-- Profile Image and Table -->
     <div class="row text-center align-items-start mb-2">
         <!-- Profile Image Column -->
