@@ -21,13 +21,11 @@ class Schools extends Controller
             return $this->redirect('login');
         }
         $errors = [];
-
         if (count($_POST) > 0) {
-
+    
             $school = new School();
 
-            if (!$school->validate($_POST)) {
-
+            if ($school->validate($_POST)) {
 
                 $arr = [
                     'school' => getValue('school'),
@@ -36,7 +34,7 @@ class Schools extends Controller
 
                 $school->insert($arr);
                 $this->redirect('schools');
-
+                
             } else {
                 $errors = $school->errors;
             }
@@ -91,8 +89,18 @@ class Schools extends Controller
             return $this->redirect('login');
         }
         $school = new School();
-        $school->delete($id);
-        $this->redirect('schools');
-        exit;
+        $row = $school->findById($id)[0] ?? null;
+
+        if (!$row) {
+            $this->redirect('schools');
+        }
+        if (count($_POST) > 0) {
+            $school->delete($id);
+            $this->redirect('schools');
+        }
+        echo $this->view('schools.delete', [
+            'title' => 'Delete School',
+            'row' => $school->findById($id)[0],
+        ]);
     }
 }
